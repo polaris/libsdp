@@ -84,6 +84,163 @@ TEST_CASE("Test 4") {
     verify(expected);
 }
 
+TEST_CASE("Test 5") {
+    const std::string expected{
+        "v=0\n"
+        "o=alice 2890844526 2890844527 IN IP4 host.atlanta.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.atlanta.example.com\n"
+        "t=0 0\n"
+        "m=audio 51372 RTP/AVP 0\n"
+        "a=rtpmap:0 PCMU/8000\n"
+        "m=video 0 RTP/AVP 31\n"
+        "a=rtpmap:31 H261/90000\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 6") {
+    const std::string expected{
+        "v=0\n"
+        "o=bob 2808844564 2808844565 IN IP4 host.biloxi.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.biloxi.example.com\n"
+        "t=0 0\n"
+        "m=audio 49172 RTP/AVP 0\n"
+        "a=rtpmap:0 PCMU/8000\n"
+        "m=video 0 RTP/AVP 31\n"
+        "a=rtpmap:31 H261/90000\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 7") {
+    const std::string expected{
+        "v=0\n"
+        "o=alice 2890844526 2890844526 IN IP4 host.atlanta.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.atlanta.example.com\n"
+        "t=0 0\n"
+        "m=audio 49170 RTP/AVP 0 8 97\n"
+        "a=rtpmap:0 PCMU/8000\n"
+        "a=rtpmap:8 PCMA/8000\n"
+        "a=rtpmap:97 iLBC/8000\n"
+        "m=video 51372 RTP/AVP 31 32\n"
+        "a=rtpmap:31 H261/90000\n"
+        "a=rtpmap:32 MPV/90000\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 8") {
+    const std::string expected{
+        "v=0\n"
+        "o=bob 2808844564 2808844564 IN IP4 host.biloxi.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.biloxi.example.com\n"
+        "t=0 0\n"
+        "m=audio 49172 RTP/AVP 99\n"
+        "a=rtpmap:99 iLBC/8000\n"
+        "m=video 51374 RTP/AVP 31\n"
+        "a=rtpmap:31 H261/90000\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 9") {
+    const std::string expected{
+        "v=0\n"
+        "o=alice 2890844526 2890844526 IN IP4 host.atlanta.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.atlanta.example.com\n"
+        "t=0 0\n"
+        "m=audio 49170 RTP/AVP 0 97\n"
+        "a=rtpmap:0 PCMU/8000\n"
+        "a=rtpmap:97 iLBC/8000\n"
+        "m=audio 49172 RTP/AVP 98\n"
+        "a=rtpmap:98 telephone-event/8000\n"
+        "a=sendonly\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 10") {
+    const std::string expected{
+        "v=0\n"
+        "o=bob 2808844564 2808844564 IN IP4 host.biloxi.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.biloxi.example.com\n"
+        "t=0 0\n"
+        "m=audio 49172 RTP/AVP 97\n"
+        "a=rtpmap:97 iLBC/8000\n"
+        "m=audio 49174 RTP/AVP 98\n"
+        "a=rtpmap:98 telephone-event/8000\n"
+        "a=recvonly\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 11") {
+    const std::string expected{
+        "v=0\n"
+        "o=alice 2890844526 2890844526 IN IP4 host.atlanta.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.atlanta.example.com\n"
+        "t=0 0\n"
+        "m=audio 49170 RTP/AVP 97\n"
+        "a=rtpmap:97 iLBC/8000\n"
+        "m=video 51372 RTP/AVP 31\n"
+        "a=rtpmap:31 H261/90000\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 12") {
+    const std::string expected{
+        "v=0\n"
+        "o=bob 2808844564 2808844564 IN IP4 host.biloxi.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.biloxi.example.com\n"
+        "t=0 0\n"
+        "m=audio 49174 RTP/AVP 97\n"
+        "a=rtpmap:97 iLBC/8000\n"
+        "m=video 49170 RTP/AVP 31\n"
+        "a=rtpmap:31 H261/90000\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 13") {
+    const std::string expected{
+        "v=0\n"
+        "o=alice 2890844526 2890844526 IN IP4 host.atlanta.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.atlanta.example.com\n"
+        "t=0 0\n"
+        "m=audio 49170 RTP/AVP 0 97\n"
+        "a=rtpmap:0 PCMU/8000\n"
+        "a=rtpmap:97 iLBC/8000\n"
+        "m=audio 49172 RTP/AVP 98\n"
+        "a=rtpmap:98 telephone-event/8000\n"
+        "a=sendonly\n"
+    };
+    verify(expected);
+}
+
+TEST_CASE("Test 14") {
+    const std::string expected{
+        "v=0\n"
+        "o=alice 2890844526 2890844526 IN IP4 host.atlanta.example.com\n"
+        "s=Foo\n"
+        "c=IN IP4 host.atlanta.example.com\n"
+        "t=0 0\n"
+        "m=audio 49170 RTP/AVP 0 97\n"
+        "a=rtpmap:0 PCMU/8000\n"
+        "a=rtpmap:97 iLBC/8000\n"
+    };
+    verify(expected);
+}
+
 void verify(const std::string &expected) {
     sdp::SessionDescription sd;
     std::stringstream in{expected};
@@ -91,5 +248,6 @@ void verify(const std::string &expected) {
 
     std::stringstream out;
     sdp::generate(&sd, out);
+
     REQUIRE(expected.compare(out.str()) == 0);
 }
