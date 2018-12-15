@@ -1,0 +1,6 @@
+[requires]
+catch2/2.4.2@bincrafters/stable
+boost/1.68.0@conan/stable
+
+[generators]
+cmake
